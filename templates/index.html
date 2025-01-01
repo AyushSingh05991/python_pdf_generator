@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Notes Maker</title>
+    <style>
+        body {
+            font-family: 'Sans', sans-serif;
+            background-color: #142544;
+            color: white;
+        }
+        input, textarea, button {
+            font-family: 'Sans', sans-serif;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: white;
+            color: #142544;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Generate Notes PDF</h1>
+    <form method="POST" align="center">
+        <label>Subject Name:</label><br>
+        <input type="text" name="subject_name" required><br>
+        <label>Chapter Name:</label><br>
+        <input type="text" name="chapter_name" required><br>
+        <div id="data-fields">
+            <label>Heading:</label><br>
+            <input type="text" name="heading"    cols="40" required><br>
+            <label>Content:</label><br>
+            <textarea name="content" rows="10" cols="40" required></textarea><br>
+        </div>
+        <button type="button" onclick="addDataField()">Add Data</button><br>
+        <button type="submit">Generate PDF</button>
+    </form>
+    <script>
+        function addDataField() {
+            const container = document.getElementById('data-fields');
+            const fieldHTML = `
+                <label>Heading:</label><br>
+                <input type="text" name="heading" cols="40" required><br>
+                <label>Content:</label><br>
+                <textarea name="content" rows="10" cols="40" required></textarea><br>
+            `;
+            container.insertAdjacentHTML('beforeend', fieldHTML);
+        }
+    </script>
+</body>
+</html>
